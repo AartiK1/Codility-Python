@@ -16,12 +16,22 @@ N and K are integers within the range [0..100];
 each element of array A is an integer within the range [−1,000..1,000].
 In your solution, focus on correctness. The performance of your solution will not be the focus of the assessment.
 """
+#Attempt #1 (87%):
 
+# def solution(A, K):
+#     # write your code in Python 2.7
+#     list = A
+#     i = 0
+#     while i < K:
+#         list.insert(0, A.pop())
+#         i += 1
+#     return list
+
+#Attempt #2 (100%):
 def solution(A, K):
     # write your code in Python 2.7
-    list = A
-    i = 0
-    while i < K:
-        list.insert(0, A.pop())
-        i += 1
-    return list
+    if len(A) == 0:
+        return A
+    else:
+        K %= len(A)
+        return A[-K:] + A[:-K]
